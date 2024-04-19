@@ -22,7 +22,8 @@ const userController={
       
              // Updating the password with hassed
              const userDetails = await users.create({ username, email, password: hashedPassword, gender,fullname });
-             res.status(201).json({ message: 'User registered successfully', userDetails });
+             const user=await users.findOne({username},{email:1, username:1, gender:1, fullname:1});
+             res.status(201).json({ message: 'User registered successfully', user });
         }
         catch(error){
          console.log(error)
@@ -42,7 +43,7 @@ const userController={
         const login=await users.findOne({username})
 
         if(!login || !(await bcrypt.compare(password, login.password))){
-            return res.status(400).json({ message: 'Invalid email or password' });
+            return res.status(400).json({ message: 'Invalid username or password' });
         }
         // generating jwt token
         const token=jwt.sign({username:username},SECRET_KEY, { expiresIn: '3h' })
@@ -58,7 +59,7 @@ const userController={
            
             const username = req.user.username
             // getting user details from the database
-            const userDetails = await users.findOne({username});
+            const userDetails = await users.findOne({username},{email:1, username:1, gender:1, fullname:1});
             console.log(userDetails)
 
             if (!userDetails) {
