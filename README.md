@@ -61,6 +61,8 @@ http://localhost:3333/
   description: API documentation for user authentication and management
 ## paths:
  # http://localhost:3333/login:
+ ![image](https://github.com/saiganesh6841/skygoal/assets/147468914/7b2ccfa1-ea4b-458a-b6e3-47b518dec114)
+
   # method=  post:
       summary: Login user
       requestBody:
