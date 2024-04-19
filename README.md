@@ -56,68 +56,49 @@ Method: POST
 http://localhost:3333/
 
 
-## info:
-  title: User Authentication API
-  description: API documentation for user authentication and management
-## paths:
- # http://localhost:3333/login:
-  # method=  post:
-      summary: Login user
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                username:
-                  type: string
-                password:
-                  type: string
-      responses:
-        '200':
-          description: Successful login
-        '401':
-          description: Unauthorized
 
-  /register:
-    post:
-      summary: Register new user
-      description: Endpoint to register a new user
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                username:
-                  type: string
-                fullname:
-                  type: string
-                email:
-                  type: string
-                password:
-                  type: string
-                gender:
-                  type: string
-                  enum: [male, female, other]
-      responses:
-        '201':
-          description: User registered successfully
-        '400':
-          description: Bad request
+ 
 
-  /userdetails:
-    get:
-      summary: Get user details
-      description: Endpoint to retrieve user details
-      security:
-        - Authorization: []
-      responses:
-        '200':
-          description: User details retrieved successfully
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+## Login
+# Request
+post /login/
+
+ Endpoint : http://localhost:3333/login
+Response
+HTTP/1.1 200 OK
+
+Status: 200 Successfull Login
+Content-Type: application/json
+
+{token :"ehgsyKKsudldldpkskhsuJJUUksl_sjhdhydlodkiuhysisjuhidjsuihs"}
+
+![Screenshot 2024-04-19 103929](https://github.com/saiganesh6841/skygoal/assets/147468914/55e6dd0b-2cb4-49fc-a0ab-f76a3420241b)
+
+
+[]
+## Regsiter
+# Request
+POST /register/
+
+ Endpoint : http://localhost:3333/register
+Response
+HTTP/1.1 201 Created
+Status: 201 succesfully register
+Content-Type: application/json
+
+{"username":"ganesh00","full name":"sai ganesh","email":"Sai@gmqil.com"}
+![Screenshot 2024-04-19 103726](https://github.com/saiganesh6841/skygoal/assets/147468914/2c74512f-7a99-4039-95e2-24458e70ed81)
+
+## UserDetails
+# Request
+POST /userDetails/
+
+ Endpoint : http://localhost:3333/userDetails
+Response
+HTTP/1.1 201 Created
+Status: 201 user details revertrived successfully
+Content-Type: application/json
+
+![Screenshot 2024-04-19 104013](https://github.com/saiganesh6841/skygoal/assets/147468914/572fcb16-4f29-48ee-95f4-064d63aa6ddd)
+
+
